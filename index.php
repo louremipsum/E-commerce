@@ -38,7 +38,6 @@ if (isset($_POST['add_to_cart'])) {
 }
 ?>
 
-
 <!--banner start-->
 <div class="banner">
     <div class="container">
@@ -47,13 +46,10 @@ if (isset($_POST['add_to_cart'])) {
 
                 <div class="banner-text">
                     <p class="bt1">Welcome To</p>
-                    <p class="bt2"><span class="bt3">Fashion</span>Store</p>
-                    <p class="bt4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et mi
-                        <br>vulputate gen vehicula maximus sagittis rhoncus tortor. Class
+                    <p class="bt2"><span class="bt3">Stationary</span>Store</p>
+                    <p class="bt4">Stores is your one-stop destination for all your stationery needs!  Whether you're looking for high-quality products, a seamless shopping experience. we've got you covered.
                     </p>
-
                 </div>
-
 
             </div>
 
@@ -73,21 +69,6 @@ if (isset($_POST['add_to_cart'])) {
 <!---top sell start---->
 
 <section>
-    <div class="container">
-        <div class="topsell-head">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <img src="img/mark.png">
-                    <h4>All Products</h4>
-                    <p>A passage of Lorem Ipsum you need here</p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-    </div>
     <style>
     .card {
         height: 500px;
@@ -117,7 +98,7 @@ if (isset($_POST['add_to_cart'])) {
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title"><?php echo $row["name"] ?></h5>
                             <p class="card-text"><?php echo $row["description"] ?></p>
-                            <p class="card-text">Price: $<?php echo $row["Price"] ?></p>
+                            <p class="card-text">Price: &#x20b9;<?php echo $row["Price"] ?></p>
                             <input type="hidden" name="product_image"
                                 value="admin/product_img/<?php echo $row['imgname']; ?>">
                             <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
@@ -139,36 +120,4 @@ if (isset($_POST['add_to_cart'])) {
     </div>
 </section>
 
-
 <!---top sell end---->
-
-
-<!---logo start--->
-
-<div class="logo5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-
-            </div>
-            <div class="col-md-2 text-center">
-                <img src="img/logo1.png">
-            </div>
-            <div class="col-md-2 text-center">
-                <img src="img/logo2.png">
-            </div>
-            <div class="col-md-2 text-center">
-                <img src="img/logo3.png">
-            </div>
-            <div class="col-md-2 text-center">
-                <img src="img/logo4.png">
-            </div>
-            <div class="col-md-2 text-center">
-                <img src="img/logo5.png">
-            </div>
-            <div class="col-md-1">
-
-            </div>
-        </div>
-    </div>
-</div>
