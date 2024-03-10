@@ -22,20 +22,20 @@
 <body>
 
     <!--header start--->
-    <header>
-        <div class="container">
-            <div class="header-top">
+    <!-- <header>          WORKING IN PROG
+        <div class="container h-50">
+            <div class="header-top ">
 
-                <div class="row">
+               <div class="row h-50">
                     <div class="col-md-12 text-center">
-                        <a href=""><img src="img/logo.png"></a>
+                        <a href=""><img src="img\logo.png"></a>
                     </div>
-                </div>
+                </div> 
 
             </div>
         </div>
-    </header>
-    <div class="line">
+    </header> 
+    <div class="line"> -->
 
 
     </div>
@@ -48,36 +48,32 @@
 //  $result = $conn -> query ($sql);
 ?>
     <!--nav start--->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5 ">
+    <div class="container">
+        <!-- FOR RESPONSIVE -->
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Clothing.php"> Clothing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Trends.php">Trends</a>
-                    </li>
-                </ul>
-                <form class="form-inline" action="search(1).php" method="post">
-                    <!--<a href=""><img src="img/search.png"></a>-->
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="name">
-                    <button class="btn btn-outline-dark" type="submit" style="margin-left:7px;margin-right:7px;"><img
-                            src="img/search.png"></button>
+        <div class="navbar-collapse p-1" id="navbarSupportedContent">
+            <div class="d-flex align-items-center">
+                <!-- Home link -->
+                <a class="navbar-brand mr-3" href="/E-commerce/index.php">Home</a>
+
+                <!-- Search form -->
+                <form class="form-inline mr-auto" action="search_results.php" method="post">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                    <!-- Add name attribute to the search input field -->
+                    <button class="btn btn-outline-dark" type="submit"><img src="img/search.png"></button>
                 </form>
-                <a href="cart.php" class="btn btn-primary">View Cart</a>
-
-
             </div>
+
+            <!-- View Cart button -->
+            <a href="cart.php" class="btn btn-primary ml-auto">View Cart</a>
         </div>
-    </nav>
+    </div>
+</nav>
+
 
     <!--nav end--->
