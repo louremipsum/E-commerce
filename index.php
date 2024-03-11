@@ -49,6 +49,9 @@ if (isset($_POST['decrement_quantity'])) {
     if ($_SESSION['cart'][$product_id]['quantity'] > 1) {
         $_SESSION['cart'][$product_id]['quantity'] -= 1;
     }
+    if ($_SESSION['cart'][$product_id]['quantity'] = 1) {
+        unset($_SESSION['cart'][$product_id]);
+    }
 }
 ?>
 
@@ -61,7 +64,8 @@ if (isset($_POST['decrement_quantity'])) {
                 <div class="banner-text">
                     <p class="bt1">Welcome To</p>
                     <p class="bt2"><span class="bt3">Stationary</span>Store</p>
-                    <p class="bt4">Stores is your one-stop destination for all your stationery needs!  Whether you're looking for high-quality products, a seamless shopping experience. we've got you covered.
+                    <p class="bt4">Stores is your one-stop destination for all your stationery needs! Whether you're
+                        looking for high-quality products, a seamless shopping experience. we've got you covered.
                     </p>
                 </div>
 
