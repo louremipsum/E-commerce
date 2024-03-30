@@ -44,7 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     foreach ($_SESSION['cart'] as $product_id => $product) {
                                         $totalPrice += (float)$product['price'] * (int)$product['quantity'];
                                         echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="post">';
-                        echo '<div class="row">';
+                                        echo '<div class="card-body">';
+                                        echo '<div class="row">';
                             echo '<div class="col-lg-3 col-md-12 mb-4 mb-lg-0">';
                                 echo '<div class="bg-image hover-overlay hover-zoom ripple rounded"
                                     data-mdb-ripple-color="light">';
