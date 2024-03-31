@@ -49,31 +49,33 @@
 ?>
     <!--nav start--->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5 ">
-    <div class="container">
-        <!-- FOR RESPONSIVE -->
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <div class="container">
+            <!-- FOR RESPONSIVE -->
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> -->
 
-        <div class="navbar-collapse p-1" id="navbarSupportedContent">
-            <div class="d-flex align-items-center">
-                <!-- Home link -->
-                <a class="navbar-brand mr-3" href="/E-commerce/index.php">Home</a>
+            <div class="navbar-collapse p-1" id="navbarSupportedContent">
+                <div class="d-flex align-items-center">
+                    <!-- Home link -->
+                    <a class="navbar-brand mr-3" href="/E-commerce/index.php">Home</a>
 
-                <!-- Search form -->
-                <form class="form-inline mr-auto" action="search_results.php" method="post">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                    <!-- Add name attribute to the search input field -->
-                    <button class="btn btn-outline-dark" type="submit"><img src="img/search.png"></button>
-                </form>
+                    <!-- Search form -->
+                    <form class="form-inline mr-auto" action="search_results.php" method="get">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                            name="search"
+                            value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                        <!-- Add name attribute to the search input field -->
+                        <button class="btn btn-outline-dark" type="submit"><img src="img/search.png"></button>
+                    </form>
+                </div>
+
+                <!-- View Cart button -->
+                <a href="cart.php" class="btn btn-primary ml-auto">View Cart</a>
             </div>
-
-            <!-- View Cart button -->
-            <a href="cart.php" class="btn btn-primary ml-auto">View Cart</a>
         </div>
-    </div>
-</nav>
+    </nav>
 
 
     <!--nav end--->
