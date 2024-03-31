@@ -34,7 +34,7 @@ if (isset($_POST['increment_quantity'])) {
     $product_id = $_POST['product_id'];
 
     // Increment the quantity if it's less than the max quantity
-    if ($_SESSION['cart'][$product_id]['quantity'] < $_SESSION['cart'][$product_id]['max_quantity']) {
+    if (isset($_SESSION['cart'][$product_id]) && $_SESSION['cart'][$product_id]['quantity'] < $_SESSION['cart'][$product_id]['max_quantity']) {
         $_SESSION['cart'][$product_id]['quantity'] += 1;
     }
 }
@@ -43,10 +43,10 @@ if (isset($_POST['decrement_quantity'])) {
     $product_id = $_POST['product_id'];
 
     // Decrement the quantity if it's greater than 1
-    if ($_SESSION['cart'][$product_id]['quantity'] > 1) {
+    if (isset($_SESSION['cart'][$product_id]) && $_SESSION['cart'][$product_id]['quantity'] >= 1) {
         $_SESSION['cart'][$product_id]['quantity'] -= 1;
     }
-    if ($_SESSION['cart'][$product_id]['quantity'] = 1) {
+    if (isset($_SESSION['cart'][$product_id]) && $_SESSION['cart'][$product_id]['quantity'] == 0) {
         unset($_SESSION['cart'][$product_id]);
     }
 }
@@ -81,8 +81,8 @@ if (isset($_POST['decrement_quantity'])) {
 }
 </style>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['search'])) {
-    $search_query = $_POST['search'];
+if (!empty($_REQUEST['search'])) {  
+      $search_query = $_GET['search'];
     $query = "SELECT * FROM product WHERE name LIKE '%$search_query%'";
     $result = mysqli_query($conn, $query);
 
@@ -91,7 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['search'])) {
         while ($row = mysqli_fetch_assoc($result)) {
             ?>
 <div class="col-md-4 col-sm-6 col-12">
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']); ?>" method="post">
+        <input type="hidden" name="search" value="<?php echo htmlspecialchars($search_query); ?>">
         <div class="card h-100">
             <img class="card-img-top" src="admin/product_img/<?php echo $row['imgname']; ?>" alt="Card image cap">
             <div class="card-body d-flex flex-column">
