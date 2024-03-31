@@ -20,41 +20,15 @@
 </head>
 
 <body>
-
-    <!--header start--->
-    <!-- <header>          WORKING IN PROG
-        <div class="container h-50">
-            <div class="header-top ">
-
-               <div class="row h-50">
-                    <div class="col-md-12 text-center">
-                        <a href=""><img src="img\logo.png"></a>
-                    </div>
-                </div> 
-
-            </div>
-        </div>
-    </header> 
-    <div class="line"> -->
-
-
     </div>
     <!--header end--->
     <?php 
   SESSION_START();
   include "lib/connection.php";
-//   $id=$_SESSION['userid'];
-//  $sql = "SELECT * FROM cart where userid='$id'";
-//  $result = $conn -> query ($sql);
 ?>
     <!--nav start--->
     <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5 ">
         <div class="container">
-            <!-- FOR RESPONSIVE -->
-            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
 
             <div class="navbar-collapse p-1" id="navbarSupportedContent">
                 <div class="d-flex align-items-center">
@@ -66,13 +40,13 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                             name="search"
                             value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
-                        <!-- Add name attribute to the search input field -->
                         <button class="btn btn-outline-dark" type="submit"><img src="img/search.png"></button>
                     </form>
                 </div>
 
-                <!-- View Cart button -->
+
                 <a href="cart.php" class="btn btn-primary ml-auto">View Cart</a>
+                <a href="/E-commerce/admin/login.php" class="btn btn-primary ml-auto">Admin</a>
             </div>
         </div>
     </nav>
