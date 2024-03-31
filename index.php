@@ -36,8 +36,8 @@ $result = $conn->query($sql);
 if (isset($_POST['increment_quantity'])) {
     $product_id = $_POST['product_id'];
 
-    // Increment the quantity if it's less than the max quantity
-    if ($_SESSION['cart'][$product_id]['quantity'] < $_SESSION['cart'][$product_id]['max_quantity']) {
+    // Check if the product is in the cart before trying to increment its quantity
+    if (isset($_SESSION['cart'][$product_id]) && $_SESSION['cart'][$product_id]['quantity'] < $_SESSION['cart'][$product_id]['max_quantity']) {
         $_SESSION['cart'][$product_id]['quantity'] += 1;
     }
 }
@@ -45,11 +45,11 @@ if (isset($_POST['increment_quantity'])) {
 if (isset($_POST['decrement_quantity'])) {
     $product_id = $_POST['product_id'];
 
-    // Decrement the quantity if it's greater than 1
-    if ($_SESSION['cart'][$product_id]['quantity'] > 1) {
+    // Check if the product is in the cart before trying to decrement its quantity
+    if (isset($_SESSION['cart'][$product_id]) && $_SESSION['cart'][$product_id]['quantity'] >= 1) {
         $_SESSION['cart'][$product_id]['quantity'] -= 1;
     }
-    if ($_SESSION['cart'][$product_id]['quantity'] = 1) {
+    if (isset($_SESSION['cart'][$product_id]) && $_SESSION['cart'][$product_id]['quantity'] == 0) {
         unset($_SESSION['cart'][$product_id]);
     }
 }
@@ -130,7 +130,7 @@ if (isset($_POST['decrement_quantity'])) {
                                 <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
                                 <button type="submit" class="btn btn-primary px-3 me-2"
                                     name="decrement_quantity">-</button>
-                                <input type="text" name="product_quantity"
+                                <input type="text" name="product_quantity" readonly
                                     value="<?php echo isset($_SESSION['cart'][$row['id']]) ? $_SESSION['cart'][$row['id']]['quantity'] : ''; ?>">
                                 <button type="submit" class="btn btn-primary px-3 me-2"
                                     name="increment_quantity">+</button>
