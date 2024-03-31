@@ -75,6 +75,7 @@ include "lib/connection.php";
                     <input type="submit" value="Login" class="btn btn-primary w-100 py-2" name="submit">
                 </div>
             </form>
+            <a class="text-primary text-center d-block mt-3" href="/E-commerce/index.php">Return to Home</a>
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
