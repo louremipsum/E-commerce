@@ -1,6 +1,7 @@
 <?php
 // Include the header
 include 'header.php';
+$totalPrice = 0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product_id = $_POST['product_id'];
     $action = $_POST['action'];
@@ -19,10 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
     }
 
+    
     // Redirect to the same page to avoid form resubmission
     header('Location: ' . $_SERVER['PHP_SELF']);
     exit;
 }
+// Calculate the total price and store it in the session
+foreach ($_SESSION['cart'] as $product_id => $product) {
+    $totalPrice += (float)$product['price'] * (int)$product['quantity'];
+}
+$_SESSION['totalPrice'] =($totalPrice*1.18);
 ?>
 
 <section class="h-100 gradient-custom">
@@ -117,9 +124,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <span><strong>₹<?= ($totalPrice*1.18); ?></strong></span>
                             </li>
                         </ul>
-                        <button type="button" class="btn btn-primary btn-lg btn-block">
-                            Go to checkout
-                        </button>
+                        <a href="/E-commerce/checkout.php">
+                            <button type="button" class="btn btn-primary btn-lg btn-block"
+                                <?= (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) ? 'disabled' : ''; ?>>
+                                Go to checkout
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
