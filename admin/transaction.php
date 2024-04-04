@@ -33,7 +33,7 @@ $result = $conn -> query ($sql);
     <!-- commit change -->
     <div class="container pendingbody">
         <h5>Transaction</h5>
-        <table class="table">
+        <table class="table table-striped mt-2">
             <thead>
                 <tr>
                     <th scope="col">Order ID</th>
@@ -57,12 +57,12 @@ $result = $conn -> query ($sql);
                     <td><?php echo $row["phone_number"] ?></td>
                     <td><?php echo $row["status"] ?></td>
                     <td>
-                                <!-- Button to view transaction details -->
-                                <form action="transaction_details.php" method="GET">
-                                    <input type="hidden" name="order_id" value="<?php echo $row['order_id']; ?>">
-                                    <button type="submit">View Details</button>
-                                </form>
-                            </td>                
+                        <!-- Button to view transaction details -->
+                        <form action="transaction_details.php" method="GET">
+                            <input type="hidden" name="order_id" value="<?php echo $row['order_id']; ?>">
+                            <button type="submit" class="btn btn-secondary">View Details</button>
+                        </form>
+                    </td>
                 </tr>
                 <?php 
     }
