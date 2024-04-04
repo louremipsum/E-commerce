@@ -56,6 +56,13 @@ $result = $conn -> query ($sql);
                     <td><?php echo $row["proof_of_payment"] ?></td>
                     <td><?php echo $row["phone_number"] ?></td>
                     <td><?php echo $row["status"] ?></td>
+                    <td>
+                                <!-- Button to view transaction details -->
+                                <form action="transaction_details.php" method="GET">
+                                    <input type="hidden" name="order_id" value="<?php echo $row['order_id']; ?>">
+                                    <button type="submit">View Details</button>
+                                </form>
+                            </td>                
                 </tr>
                 <?php 
     }
