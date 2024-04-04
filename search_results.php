@@ -105,18 +105,23 @@ if (!empty($_REQUEST['search'])) {
                 <input type="hidden" name="product_price" value="<?php echo $row['Price']; ?>">
                 <input type="hidden" name="product_max_quantity" value="<?php echo $row['quantity']; ?>">
 
+                <?php if ($row['quantity'] > 0): ?>
                 <?php if (isset($_SESSION['cart'][$row['id']])): ?>
                 <div class="d-flex mb-4" style="max-width: 300px" id="quantity_component_<?php echo $row['id']; ?>">
                     <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
                     <button type="submit" class="btn btn-primary px-3 me-2" name="decrement_quantity">-</button>
-                    <input type="text" name="product_quantity"
+                    <input type="text" name="product_quantity" readonly
                         value="<?php echo isset($_SESSION['cart'][$row['id']]) ? $_SESSION['cart'][$row['id']]['quantity'] : ''; ?>">
-                    <button type="submit" class="btn btn-primary px-3 me-2" name="increment_quantity">+</button>
+                    <button type="submit" class="btn btn-primary px-3 me-2" name="increment_quantity"
+                        <?php echo ($_SESSION['cart'][$row['id']]['quantity'] >= $row['quantity']) ? 'disabled' : ''; ?>>+</button>
                 </div>
                 <?php else: ?>
                 <input type="hidden" name="product_quantity" value="1">
                 <input type="submit" class="btn btn-primary mt-auto" value="Add to Cart"
                     id="add_to_cart_<?php echo $row['id']; ?>" name="add_to_cart">
+                <?php endif; ?>
+                <?php else: ?>
+                <button type="button" class="btn btn-primary mt-auto" disabled>Out of Stock</button>
                 <?php endif; ?>
             </div>
         </div>
