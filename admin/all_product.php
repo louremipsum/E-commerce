@@ -73,11 +73,12 @@ else
             </thead>
             <tbody>
                 <?php
-            if (mysqli_num_rows($result) > 0) {
-                // output data of each row
-                while($row = mysqli_fetch_assoc($result)) {
-            ?>
-                <tr>
+                if (mysqli_num_rows($result) > 0) {
+                    // output data of each row
+                    while($row = mysqli_fetch_assoc($result)) {
+                        $rowStyle = ($row['quantity'] == 0) ? 'style="background-color: #FFCCCC;"' : '';
+                ?>
+                <tr <?php echo $rowStyle; ?>>
                     <td><img src="product_img/<?php echo $row['imgname']; ?>" style="width:50px;"></td>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['description']; ?></td>
@@ -87,11 +88,11 @@ else
                     <td><?php echo $row['invoiceNum']; ?></td>
                 </tr>
                 <?php 
-                }
-            } 
-            else 
-                echo "0 results";
-            ?>
+                    }
+                } 
+                else 
+                    echo "0 results";
+                ?>
             </tbody>
         </table>
     </div>

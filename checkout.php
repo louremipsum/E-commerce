@@ -18,7 +18,13 @@ if (isset($_POST['pay'])) {
         foreach ($_SESSION['cart'] as $product_id => $product) {
             $quantity = $product['quantity'];
             $subtotal = $product['price'] * $quantity;
+
+             // Insert into order_items
             $sql = "INSERT INTO order_items (order_id, product_id, quantity, subtotal) VALUES ($order_id, $product_id, $quantity, $subtotal)";
+            $conn->query($sql);
+            
+            // Decrease the quantity of the product in the products table
+            $sql = "UPDATE product SET quantity = quantity - $quantity WHERE id = $product_id";
             $conn->query($sql);
         }
 
