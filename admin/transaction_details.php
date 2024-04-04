@@ -76,13 +76,13 @@ if(isset($_POST['back_to_transaction'])) {
                     </td>
                     <td><?php echo $item['vendorName']; ?></td>
                     <td><?php echo $item['quantity']; ?></td>
-                    <td><?php echo $item['subtotal']; ?></td>
+                    <td>₹<?php echo $item['subtotal']; ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="4" class="text-right"><strong>Total Price(with tax):</strong></td>
+                    <td colspan="4" class="text-right"><strong>Total Price(with Tax): ₹</strong></td>
                     <td><?php echo $total_price; ?></td>
                 </tr>
             </tfoot>

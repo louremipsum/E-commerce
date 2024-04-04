@@ -94,7 +94,7 @@ $transactionStatus = 'No transaction found with this proof of payment.';
                         </td>
                         <td><?php echo $item['vendorName']; ?></td>
                         <td><?php echo $item['quantity']; ?></td>
-                        <td><?php echo $item['subtotal']; ?></td>
+                        <td>₹<?php echo $item['subtotal']; ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
